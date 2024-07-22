@@ -1,0 +1,112 @@
+library(shiny)
+library(shinyWidgets)
+library(ggplot2)
+library(readr)
+
+# 定义 UI
+first_tab_ui <- function(id) {
+  ns <- NS(id)
+  
+  tabPanel(
+    title = "数据",
+    fluidPage(
+      titlePanel("数据处理"),
+      sidebarLayout(
+        sidebarPanel(
+          "数据侧边栏",
+          fileInput(ns("file_upload"), "上传文件", 
+                    accept = c('text/csv', 'text/comma-separated-values', 'text/plain', '.csv')
+          ),
+          colourInput(ns("color_picker"), "选择颜色", value = "#FF0000"),
+          selectInput(ns("dropdown_menu"), "选择选项",
+                      choices = c("选项 1" = "option1",
+                                  "选项 2" = "option2",
+                                  "选项 3" = "option3"),
+                      selected = "option1"),
+          checkboxGroupInput(ns("checkbox_group"), "选择多个选项",
+                             choices = c("选项 A" = "optionA",
+                                         "选项 B" = "optionB",
+                                         "选项 C" = "optionC"),
+                             selected = c("optionA", "optionB")),
+          switchInput(ns("toggle_switch"), "开关按钮", value = TRUE),
+          actionButton(ns("plot_button"), "绘制图形")  # 添加绘图按钮
+        ),
+        mainPanel(
+          "first_tab_ui",
+          tableOutput(ns("file_table")),
+          textOutput(ns("selected_color")),
+          textOutput(ns("selected_option")),
+          textOutput(ns("selected_checkboxes")),
+          textOutput(ns("switch_status")),
+          plotOutput(ns("plot"))  # 添加图形输出
+        )
+      )
+    )
+  )
+}
+
+# 定义服务器逻辑
+server <- function(input, output, session) {
+  
+  # 显示上传的文件内容
+  output$file_table <- renderTable({
+    req(input$file_upload)
+    file <- input$file_upload$datapath
+    read.csv(file)
+  })
+  
+  # 显示选择的颜色
+  output$selected_color <- renderText({
+    paste("选中的颜色是：", input$color_picker)
+  })
+  
+  # 显示下拉菜单选择的选项
+  output$selected_option <- renderText({
+    paste("选中的选项是：", input$dropdown_menu)
+  })
+  
+  # 显示复选框选择的选项
+  output$selected_checkboxes <- renderText({
+    paste("选中的复选框选项是：", paste(input$checkbox_group, collapse = ", "))
+  })
+  
+  # 显示开关按钮的状态
+  output$switch_status <- renderText({
+    if (input$toggle_switch) {
+      "开关按钮是开启的"
+    } else {
+      "开关按钮是关闭的"
+    }
+  })
+  
+  # 根据按钮点击绘制图形
+  observeEvent(input$plot_button, {
+    req(input$file_upload)
+    
+    # 读取上传的文件
+    file <- input$file_upload$datapath
+    data <- read.csv(file)
+    
+    # 检查数据结构
+    if (!all(c("x", "y") %in% colnames(data))) {
+      showModal(modalDialog(
+        title = "错误",
+        "上传的文件不包含 'x' 和 'y' 列",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+      return(NULL)
+    }
+    
+    # 绘制图形
+    output$plot <- renderPlot({
+      ggplot(data, aes(x = x, y = y)) +
+        geom_point(color = input$color_picker) +  # 使用选择的颜色
+        theme_minimal() +
+        labs(title = "上传数据的散点图", x = "X 轴", y = "Y 轴")
+    })
+  })
+}
+
+# 启动应用
+shinyApp(ui = fluidPage(first_tab_ui("tab1")), server = server)
