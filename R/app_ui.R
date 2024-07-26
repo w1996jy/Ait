@@ -1,19 +1,31 @@
 app_ui <- function(request) {
   tagList(
-    # 将此函数用于添加外部资源。
-    # golem_add_external_resources(),
+    # 添加外部资源
+    golem_add_external_resources(),
     # 应用程序 UI 逻辑
     navbarPage(
-      theme = shinytheme("spacelab"),
+      theme = shinytheme('spacelab'),
       title = "Ait",
       # 首页标签
       homepage_ui("home_id"),
-      # 数据标签
-      first_tab_ui("first_tab_id"),
-      # 分析标签
-      second_tab_ui("second_tab_id"),
-      # 分析标签
-      third_tab_ui("second_tab_id")
+      # 导入文件标签
+      navbarMenu(
+        title = 'Analysis',
+        icon = icon("upload"),
+        OPLS_DA_ui("data_import_raw_id"),
+        PCA_ui("data_import_tbl_id"),
+        Venn_ui("data_import_massdataset_id")
+      ),
+      # 数据清理标签
+      navbarMenu(
+        title = 'Plot',
+        icon = icon("filter"),
+        Bar_ui("data_overview_id"),
+        Point_ui("data_rm_noise_id"),
+        Line_ui("data_rm_outlier_id")
+      ),
+      # 项目初始化标签
+      help_ui("project_init_id")
     )
   )
 }
