@@ -8,6 +8,7 @@ library(splines)
 library(elliptic)
 library(shinyjs)
 library(ggplot2)
+library(DT)
 customLogo <- shinyDashboardLogoDIY(
   boldText = "SD"
   ,mainText = "Themes"
@@ -49,10 +50,10 @@ golem_add_external_resources <- function(){
   )
   
   tags$head(
-    favicon(),
+    favicon("app/www/favicon.ico"),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'cloop'
+      app_title = 'Ait'
     )
     # Add here other external resources
     # for example, you can add

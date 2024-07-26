@@ -1,7 +1,7 @@
 app_ui <- function(request) {
   tagList(
     # 添加外部资源
-    golem_add_external_resources(),
+    # golem_add_external_resources(),
     # 应用程序 UI 逻辑
     navbarPage(
       theme = shinytheme('spacelab'),
