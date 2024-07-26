@@ -4,6 +4,10 @@ library(shinythemes)
 library(shinyWidgets)
 library(colourpicker)
 library(dashboardthemes)
+library(splines)
+library(elliptic)
+library(shinyjs)
+library(ggplot2)
 customLogo <- shinyDashboardLogoDIY(
   boldText = "SD"
   ,mainText = "Themes"

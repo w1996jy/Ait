@@ -20,7 +20,7 @@ app_ui <- function(request) {
       navbarMenu(
         title = 'Plot',
         icon = icon("filter"),
-        Bar_ui("data_overview_id"),
+        Bar_ui("bar"),
         Point_ui("data_rm_noise_id"),
         Line_ui("data_rm_outlier_id")
       ),
