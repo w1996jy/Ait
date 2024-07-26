@@ -9,6 +9,8 @@ library(elliptic)
 library(shinyjs)
 library(ggplot2)
 library(DT)
+library(rlang)
+library(colourpicker)
 customLogo <- shinyDashboardLogoDIY(
   boldText = "SD"
   ,mainText = "Themes"

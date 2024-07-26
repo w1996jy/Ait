@@ -22,7 +22,7 @@ run_Ait <- function(
       ui = app_ui,
       server = app_server,
       onStart = onStart,
-      options = options,
+      options = list(launch.browser = TRUE),
       enableBookmarking = enableBookmarking,
       uiPattern = uiPattern
     ),
