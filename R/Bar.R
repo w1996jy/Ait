@@ -1,3 +1,10 @@
+#' Draw a histogram
+#' @name Bar_ui
+#' @param id A time-series omics matrix.
+#' @import shiny
+#' @import colourpicker
+#' @import ggplot2
+#' @importFrom DT dataTableOutput
 # Bar_ui ------------------------------------------------------------------
 
 Bar_ui <- function(id) {

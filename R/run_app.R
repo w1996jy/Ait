@@ -1,3 +1,4 @@
+#' @export run_Ait
 # list.files(path = "E:/Rapp/Ait/R")
 
 # 运行"E:/Rapp/Ait/R"文件夹下除"run_app.R"以外的所有文件 ---------------------------------------------------
@@ -29,4 +30,4 @@ run_Ait <- function(
     golem_opts = list(...)
   )
 }
-run_Ait()
+# run_Ait()
