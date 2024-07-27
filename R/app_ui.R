@@ -26,7 +26,7 @@ app_ui <- function(request) {
                  PCA_ui("data_import_tbl_id")
         ),
         tabPanel("Venn",
-                 Venn_ui("data_import_massdataset_id")
+                 Venn_ui("venn")
         )
       ),
       # 数据清理标签
