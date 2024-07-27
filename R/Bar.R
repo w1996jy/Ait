@@ -5,6 +5,11 @@
 #' @import colourpicker
 #' @import ggplot2
 #' @import DT
+#' @import elliptic
+#' @import rlang
+#' @import shinyWidgets
+#' @import shinyjs
+#' @import dashboardthemes
 #' @importFrom utils read.csv
 #' @importFrom DT dataTableOutput
 # Bar_ui ------------------------------------------------------------------
@@ -34,14 +39,14 @@ Bar_ui <- function(id) {
         # 自定义标题、标签字体大小和颜色
         numericInput(ns("title_size"), "\u6807\u9898\u5b57\u4f53\u5927\u5c0f\u003a", 
                      value = 20, min = 1, step = 1),
-        colourInput(ns("title_color"), "\u6807\u9898\u989c\u8272\u003a", 
+        colourpicker::colourInput(ns("title_color"), "\u6807\u9898\u989c\u8272\u003a", 
                                   value = "black"),
         numericInput(ns("label_size"), "\u8f6e\u8fde\u6807\u7b7e\u5b57\u4f53\u5927\u5c0f\u003a", 
                      value = 20, min = 1, step = 1),
-        colourInput(ns("label_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a",
+        colourpicker::colourInput(ns("label_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a",
                                   value = "black"),
         # 柱子的颜色
-        colourInput(ns("bar_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a", 
+        colourpicker::colourInput(ns("bar_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a", 
                                   value = "#03A9F4"),
         # 自定义下载尺寸输入框
         numericInput(ns("width"), "\u56fe\u50cf\u5bbd\u5ea6\u0020(px)\u003a", 

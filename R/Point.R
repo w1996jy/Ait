@@ -1,3 +1,4 @@
+#' Point_ui
 Point_ui <- function(id) {
   tabPanel(
     title = "Point",

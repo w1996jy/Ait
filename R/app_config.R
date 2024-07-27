@@ -1,3 +1,4 @@
+#' Venn_ui
 #' Access files in the current app
 #'
 #' NOTE: If you manually change your package name in the DESCRIPTION,
@@ -20,6 +21,7 @@ app_sys <- function(...) {
 #' If unset, "default".
 #' @param use_parent Logical, scan the parent directory for config file.
 #' @param file Location of the config file
+#' @import config
 #'
 #' @noRd
 get_golem_config <- function(
@@ -35,7 +37,7 @@ get_golem_config <- function(
     # Modify this if your config file is somewhere else
     file = app_sys("golem-config.yml")
 ) {
-  config::get(
+  get(
     value = value,
     config = config,
     file = file,

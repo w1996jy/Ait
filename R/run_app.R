@@ -1,3 +1,4 @@
+#' run_Ait
 #' @export run_Ait
 #' @importFrom golem with_golem_options 
 #' @importFrom shiny shinyApp
@@ -34,4 +35,4 @@ run_Ait <- function(
     golem_opts = list(...)
   )
 }
-# run_Ait()
+run_Ait()

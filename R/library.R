@@ -1,3 +1,6 @@
+#' Dependency package
+#' @description
+#' Dependency package
 library(golem)
 library(shiny)
 library(shinythemes)
@@ -11,6 +14,9 @@ library(ggplot2)
 library(DT)
 library(rlang)
 library(colourpicker)
+library(readxl)
+library(dplyr)
+library(writexl)
 customLogo <- shinyDashboardLogoDIY(
   boldText = "SD"
   ,mainText = "Themes"
