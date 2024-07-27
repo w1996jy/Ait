@@ -26,11 +26,11 @@ customLogo <- shinyDashboardLogoDIY(
 
 custom_css <- "
 .navbar-nav .dropdown-menu {
-  top: 20px; /* 调整下拉菜单的位置 */
-  left: -50px; /* 调整下拉菜单的位置 */
+  top: 20px; 
+  left: -50px; 
 }
 .navbar-nav .dropdown-toggle::after {
-  content: none; /* 去掉默认的下拉箭头 */
+  content: none; 
 }
 "
 # -------------------------------------------------------------------------

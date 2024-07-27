@@ -4,6 +4,8 @@
 #' @import shiny
 #' @import colourpicker
 #' @import ggplot2
+#' @import DT
+#' @importFrom utils read.csv
 #' @importFrom DT dataTableOutput
 # Bar_ui ------------------------------------------------------------------
 
@@ -15,30 +17,45 @@ Bar_ui <- function(id) {
       sidebarPanel(
         id = ns("Sidebar"),
         # 文件上传控件
-        fileInput(ns("file_upload"), "上传 CSV 文件", accept = ".csv"),
+        fileInput(ns("file_upload"), "\u4e0a\u4f20\u0020CSV\u0020\u6587\u4ef6", 
+                  accept = ".csv"),
         # 下拉菜单选择 x 和 y 轴变量
-        selectInput(ns("x_var"), "选择 X 轴变量:", choices = NULL),
-        selectInput(ns("y_var"), "选择 Y 轴变量:", choices = NULL),
-        textInput(ns("title"), "请输入标题:",value = "tittle"),
-        textInput(ns("x_label"), "请输入 X 轴标签:",value = "xlabel"),
-        textInput(ns("y_label"), "请输入 Y 轴标签:",value = "ylabel"),
-        textInput(ns("bar_width"), "请输入bar宽度:",value = 0.5),
+        selectInput(ns("x_var"), "\u9009\u62e9\u0020X\u0020\u8f6e\u8fde\u5f15\u6570\u636e\u003a",
+                    choices = NULL),
+        selectInput(ns("y_var"), "\u9009\u62e9\u0020Y\u0020\u8f6e\u8fde\u5f15\u6570\u636e\u003a", 
+                    choices = NULL),
+        textInput(ns("title"), "\u8bf7\u8f93\u5165\u6807\u9898\u003a",value = "tittle"),
+        textInput(ns("x_label"), "\u8bf7\u8f93\u5165\u0020X\u0020\u8f6e\u8fde\u6807\u7b7e\u003a",
+                  value = "xlabel"),
+        textInput(ns("y_label"), "\u8bf7\u8f93\u5165\u0020Y\u0020\u8f6e\u8fde\u6807\u7b7e\u003a",
+                  value = "ylabel"),
+        textInput(ns("bar_width"), "\u8bf7\u8f93\u5165\u0020bar\u0020\u5bbd\u5ea6\u003a",
+                  value = 0.5),
         # 自定义标题、标签字体大小和颜色
-        numericInput(ns("title_size"), "标题字体大小:", value = 20, min = 1, step = 1),
-        colourpicker::colourInput(ns("title_color"), "标题颜色:", value = "black"),
-        numericInput(ns("label_size"), "轴标签字体大小:", value = 20, min = 1, step = 1),
-        colourpicker::colourInput(ns("label_color"), "轴标签颜色:", value = "black"),
+        numericInput(ns("title_size"), "\u6807\u9898\u5b57\u4f53\u5927\u5c0f\u003a", 
+                     value = 20, min = 1, step = 1),
+        colourInput(ns("title_color"), "\u6807\u9898\u989c\u8272\u003a", 
+                                  value = "black"),
+        numericInput(ns("label_size"), "\u8f6e\u8fde\u6807\u7b7e\u5b57\u4f53\u5927\u5c0f\u003a", 
+                     value = 20, min = 1, step = 1),
+        colourInput(ns("label_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a",
+                                  value = "black"),
         # 柱子的颜色
-        colourpicker::colourInput(ns("bar_color"), "轴标签颜色:", value = "#03A9F4"),
+        colourInput(ns("bar_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a", 
+                                  value = "#03A9F4"),
         # 自定义下载尺寸输入框
-        numericInput(ns("width"), "图像宽度 (px):", value = 800, min = 100, step = 10),
-        numericInput(ns("height"), "图像高度 (px):", value = 600, min = 100, step = 10),
+        numericInput(ns("width"), "\u56fe\u50cf\u5bbd\u5ea6\u0020(px)\u003a", 
+                     value = 800, min = 100, step = 10),
+        numericInput(ns("height"), "\u56fe\u50cf\u9ad8\u5ea6\u0020(px)\u003a",
+                     value = 600, min = 100, step = 10),
         # 添加下载格式选择下拉菜单
-        selectInput(ns("format"), "选择下载格式:", choices = c("pdf", "png", "jpg", "svg")),
+        selectInput(ns("format"), "\u9009\u62e9\u4e0b\u8f7d\u683c\u5f0f\u003a", 
+                    choices = c("pdf", "png", "jpg", "svg","eps", 
+                                "ps", "tex","jpeg","bmp","wmf")),
         # 添加 Run 按钮
         actionButton(ns("run_button"), "Run"),
         # 添加下载按钮
-        downloadButton(ns("download_plot"), "下载图像")
+        downloadButton(ns("download_plot"), "download")
       ),
       mainPanel(
         # 使用 DT 渲染上传文件的内容

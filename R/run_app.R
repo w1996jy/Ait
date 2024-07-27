@@ -1,4 +1,8 @@
 #' @export run_Ait
+#' @importFrom golem with_golem_options 
+#' @importFrom shiny shinyApp
+#' @inheritParams shiny::shinyApp
+
 # list.files(path = "E:/Rapp/Ait/R")
 
 # 运行"E:/Rapp/Ait/R"文件夹下除"run_app.R"以外的所有文件 ---------------------------------------------------
