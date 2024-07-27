@@ -14,6 +14,14 @@ Venn_ui <- function(id) {
       sidebarPanel(
         fileInput(ns("file1"), "Choose CSV file", accept = c(".csv")),
         uiOutput(ns("col_ui")),
+        colourpicker::colourInput(ns("color1"), "Select Color 1", value = "red"),
+        colourpicker::colourInput(ns("color2"), "Select Color 2", value = "blue"),
+        colourpicker::colourInput(ns("color3"), "Select Color 3", value = "green"),
+        colourpicker::colourInput(ns("color4"), "Select Color 4", value = "yellow"),
+        colourpicker::colourInput(ns("color5"), "Select Color 5", value = "purple"),
+        numericInput(ns("width"), "Width (inches)", value = 7),
+        numericInput(ns("height"), "Height (inches)", value = 7),
+        selectInput(ns("format"), "Select Format", choices = c("pdf", "png", "jpg", "svg", "eps", "ps", "tex", "jpeg", "bmp", "wmf")),
         actionButton(ns("plot_venn"), "Plot Venn Diagram"),
         downloadButton(ns("downloadVenn"), "Download Venn Diagram")
       ),
@@ -52,10 +60,12 @@ Venn_server <- function(input, output, session) {
     sets <- lapply(data, function(col) unique(col))
     names(sets) <- colnames(data)
     
+    colors <- c(input$color1, input$color2, input$color3, input$color4, input$color5)[1:length(sets)]
+    
     venn.plot <- venn.diagram(
       x = sets,
       category.names = colnames(data),
-      fill = c("red", "blue", "green", "yellow", "purple")[1:length(sets)],
+      fill = colors,
       filename = NULL, # 设置为NULL，避免保存文件
       output = TRUE
     )
@@ -64,19 +74,34 @@ Venn_server <- function(input, output, session) {
   
   output$downloadVenn <- downloadHandler(
     filename = function() {
-      paste("venn_diagram.png")
+      paste("venn_diagram.", input$format, sep = "")
     },
     content = function(file) {
-      png(file)
+      device <- switch(input$format,
+                       pdf = pdf,
+                       png = png,
+                       jpg = jpeg,
+                       svg = svg,
+                       eps = postscript,
+                       ps = postscript,
+                       tex = function(...) tikzDevice::tikz(...),
+                       jpeg = jpeg,
+                       bmp = bmp,
+                       wmf = win.metafile
+      )
+      
+      device(file, width = input$width, height = input$height)
       data <- dataset()[, input$selected_cols, drop = FALSE]
       
       sets <- lapply(data, function(col) unique(col))
       names(sets) <- colnames(data)
       
+      colors <- c(input$color1, input$color2, input$color3, input$color4, input$color5)[1:length(sets)]
+      
       venn.plot <- venn.diagram(
         x = sets,
         category.names = colnames(data),
-        fill = c("red", "blue", "green", "yellow", "purple")[1:length(sets)],
+        fill = colors,
         filename = NULL, # 设置为NULL，避免保存文件
         output = TRUE
       )
