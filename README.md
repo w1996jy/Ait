@@ -1,3 +1,15 @@
+### 安装
+
+```
+remotes::install_git("https://gitee.com/anhuikylin/ait.git")
+```
+### 启动
+
+
+```
+Ait::run_Ait()
+```
+### 上传本地代码
 
 ```
 git config --global user.name "anhuikylin"
@@ -20,7 +32,7 @@ git remote add origin https://gitee.com/anhuikylin/ait.git
 git pull --rebase origin master
 git push -u origin master
 ```
-
+### 上传本地代码失败的其他方法
 
 ```
 解决方法：
@@ -47,6 +59,7 @@ git push -f origin master
 git fetch
 git merge
 ```
+### R包开发
 
 ```
 rm(list = ls())
