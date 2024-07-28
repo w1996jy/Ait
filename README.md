@@ -80,12 +80,10 @@ library('devtools')
 # 删除NAMESPACE和原始的R文件 man里面的hello
 load_all()
 document()
-document(pkg = ".",c("collate", "rd"))
-# use_mit_license()
+use_mit_license()
 # use_testthat()
-
+roxygen2::roxygenise()
 check()
-check(document = FALSE)
 
 install()
 
