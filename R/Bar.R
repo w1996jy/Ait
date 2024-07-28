@@ -1,5 +1,7 @@
 #' Draw a histogram
-#' @name Bar_ui
+#'
+#' @description Creates a UI for drawing histograms.
+#'
 #' @param id A time-series omics matrix.
 #' @import shiny
 #' @import colourpicker
@@ -12,8 +14,8 @@
 #' @import dashboardthemes
 #' @importFrom utils read.csv
 #' @importFrom DT dataTableOutput
-# Bar_ui ------------------------------------------------------------------
-
+#' @name Bar_ui
+#' @noRd
 Bar_ui <- function(id) {
   ns <- NS(id)
   tabPanel(
@@ -72,9 +74,15 @@ Bar_ui <- function(id) {
   )
 }
 
-# Bar_server --------------------------------------------------------------
-
-
+#' Bar Server Function
+#'
+#' @description Server logic for the Bar UI module.
+#'
+#' @param input Shiny input object.
+#' @param output Shiny output object.
+#' @param session Shiny session object.
+#' @name Bar_server
+#' @noRd
 Bar_server <- function(input, output, session) {
   # Reactive value to store the uploaded data
   uploaded_data <- reactiveVal(NULL)
@@ -111,7 +119,7 @@ Bar_server <- function(input, output, session) {
       x = !!sym(input$x_var),
       y = !!sym(input$y_var)
     )) +
-      geom_bar(stat = "identity",width = as.numeric(input$bar_width),fill = input$bar_color) +
+      geom_bar(stat = "identity", width = as.numeric(input$bar_width), fill = input$bar_color) +
       labs(
         title = input$title,
         x = input$x_label,

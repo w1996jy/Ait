@@ -2,10 +2,13 @@
 % Please edit documentation in R/OPLS_DA.R
 \name{OPLS_DA_ui}
 \alias{OPLS_DA_ui}
-\title{OPLS_DA_ui}
+\title{OPLS_DA UI Module}
 \usage{
 OPLS_DA_ui(id)
 }
+\arguments{
+\item{id}{A unique identifier for the module.}
+}
 \description{
-OPLS_DA_ui
+UI for displaying OPLS_DA (Orthogonal Projections to Latent Structures Discriminant Analysis)
 }

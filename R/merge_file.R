@@ -6,7 +6,11 @@ library(shinyWidgets)
 library(shinyFiles)
 
 #' Merge File UI Module
-#' @description UI for merging files
+#' 
+#' @description 
+#' UI for merging files
+#' 
+#' @param id A unique identifier for the module.
 #' 
 merge_file_ui <- function(id) {
   ns <- NS(id)
@@ -37,7 +41,19 @@ merge_file_ui <- function(id) {
 
 #' Merge File Server Module
 #' @description Server logic for merging files
-#' 
+#' @param input, output, session Standard shiny server arguments
+#' @import shiny
+#' @import readxl
+#' @import dplyr
+#' @import writexl
+#' @import shinyWidgets
+#' @import shinyFiles
+#' @importFrom readxl read_excel excel_sheets
+#' @importFrom dplyr left_join
+#' @importFrom writexl write_xlsx
+#' @importFrom stats setNames
+#' @importFrom utils head
+#' @noRd
 merge_file_server <- function(input, output, session) {
   ns <- session$ns
   

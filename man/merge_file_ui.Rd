@@ -6,6 +6,9 @@
 \usage{
 merge_file_ui(id)
 }
+\arguments{
+\item{id}{A unique identifier for the module.}
+}
 \description{
 UI for merging files
 }

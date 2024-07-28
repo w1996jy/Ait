@@ -2,10 +2,13 @@
 % Please edit documentation in R/Point.R
 \name{Point_ui}
 \alias{Point_ui}
-\title{Point_ui}
+\title{Point UI Module}
 \usage{
 Point_ui(id)
 }
+\arguments{
+\item{id}{A unique identifier for the module.}
+}
 \description{
-Point_ui
+UI for displaying Point plot
 }

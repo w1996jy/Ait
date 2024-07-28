@@ -1,5 +1,7 @@
 #' Draw a deseq2
-#' @name deseq2_ui
+#'
+#' @description Creates a UI for DESeq2 analysis.
+#'
 #' @param id A time-series omics matrix.
 #' @import shiny
 #' @import shinythemes
@@ -10,17 +12,8 @@
 #' @import DESeq2
 #' @import pheatmap
 #' @import ggplot2
-
-library(shiny)
-library(shinythemes)
-library(dashboardthemes)
-library(shinydashboard)
-library(shinyWidgets)
-library(DT)
-library(DESeq2)
-library(pheatmap)
-library(ggplot2)
-
+#' @name deseq2_ui
+#' @noRd
 deseq2_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -48,6 +41,16 @@ deseq2_ui <- function(id) {
   )
 }
 
+#' DESeq2 Server Module
+#' @description Server logic for DESeq2 analysis
+#' @param input, output, session Standard shiny server arguments
+#' @import shiny
+#' @import DESeq2
+#' @import pheatmap
+#' @importFrom utils head write.csv
+#' @importFrom matrixStats rowVars
+#' @importFrom stats setNames
+#' @noRd
 deseq2_server <- function(input, output, session) {
   observeEvent(input$run_analysis, {
     req(input$count_file, input$meta_file)
@@ -139,5 +142,3 @@ deseq2_server <- function(input, output, session) {
     )
   })
 }
-
-shinyApp(ui = deseq2_ui("deseq2"), server = deseq2_server)

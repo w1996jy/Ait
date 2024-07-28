@@ -1,11 +1,18 @@
-#' homepage_ui
+#' Homepage UI
+#'
 #' @description
-#' homepage_ui
+#' Creates the UI for the homepage.
+#'
+#' @param id A time-series omics matrix.
+#' @import shiny
+#' @name homepage_ui
+#' @noRd
 homepage_ui <- function(id) {
+  ns <- NS(id)
   tabPanel(
-    title = "homepage",
+    title = "Homepage",
     fluidPage(
-      mainPanel("homepage")
+      mainPanel("Homepage")
     )
   )
 }

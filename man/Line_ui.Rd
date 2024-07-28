@@ -6,6 +6,9 @@
 \usage{
 Line_ui(id)
 }
+\arguments{
+\item{id}{A unique identifier for the module.}
+}
 \description{
-Line_ui
+Creates a UI for the Line plot tab in the Shiny application.
 }

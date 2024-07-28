@@ -1,4 +1,3 @@
-#' Venn_ui
 #' Access files in the current app
 #'
 #' NOTE: If you manually change your package name in the DESCRIPTION,
@@ -7,12 +6,11 @@
 #'
 #' @param ... character vectors, specifying subdirectory and file(s)
 #' within your package. The default, none, returns the root of the app.
-#'
+#' @name app_sys
 #' @noRd
 app_sys <- function(...) {
   system.file(..., package = "Ait")
 }
-
 
 #' Read App Config
 #'
@@ -22,7 +20,7 @@ app_sys <- function(...) {
 #' @param use_parent Logical, scan the parent directory for config file.
 #' @param file Location of the config file
 #' @import config
-#'
+#' @name get_golem_config
 #' @noRd
 get_golem_config <- function(
     value,

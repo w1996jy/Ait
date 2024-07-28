@@ -1,3 +1,11 @@
+#' Application User Interface
+#'
+#' @description Defines the user interface of the Shiny application.
+#'
+#' @param request Internal parameter for `{shiny}`. 
+#'     Do not remove.
+#' @name app_ui
+#' @noRd
 app_ui <- function(request) {
   navbarPage(
     theme = shinytheme('spacelab'),

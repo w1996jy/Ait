@@ -2,10 +2,13 @@
 % Please edit documentation in R/PCA.R
 \name{PCA_ui}
 \alias{PCA_ui}
-\title{PCA_ui}
+\title{PCA UI Module}
 \usage{
 PCA_ui(id)
 }
+\arguments{
+\item{id}{A unique identifier for the module.}
+}
 \description{
-PCA_ui
+UI for displaying PCA (Principal Component Analysis)
 }

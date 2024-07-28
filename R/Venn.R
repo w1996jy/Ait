@@ -1,8 +1,18 @@
+# 'Venn_server' 函数中使用了 tikzDevice 包，需要添加声明
+# 添加 tikzDevice 的导入声明
+# @importFrom tikzDevice tikz
+
 library(shiny)
 library(VennDiagram)
 library(shinyWidgets)
 library(ggplot2)
 library(grid)
+# 移除不使用的包
+# library(dplyr)
+# library(readxl)
+# library(shinyFiles)
+# library(writexl)
+library(tikzDevice) # 确保在代码中声明并使用
 
 #' Venn Diagram UI Module
 #' @description UI for creating Venn diagrams
@@ -11,6 +21,7 @@ library(grid)
 #' @import shinyWidgets
 #' @import ggplot2
 #' @import grid
+#' @importFrom tikzDevice tikz
 Venn_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -38,7 +49,12 @@ Venn_ui <- function(id) {
 
 #' Venn Diagram Server Module
 #' @description Server logic for creating Venn diagrams
-#' 
+#' @import shiny
+#' @import VennDiagram
+#' @import shinyWidgets
+#' @import ggplot2
+#' @import grid
+#' @importFrom grDevices bmp dev.off jpeg pdf png postscript svg win.metafile
 Venn_server <- function(input, output, session) {
   ns <- session$ns
   

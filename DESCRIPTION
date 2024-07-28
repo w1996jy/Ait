@@ -8,7 +8,30 @@ Description: This package provides an example Shiny application
  that demonstrates how to build interactive web applications 
  using the Shiny framework and golem package.
 License: MIT + file LICENSE
-Imports: DT,colourpicker,ggplot2,VennDiagram,shinyFiles,shinydashboard,DESeq2,pheatmap,golem,shiny,shinythemes,shinyWidgets,shinyjs,rlang,dashboardthemes,elliptic,utils,config,writexl,readxl,dplyr
+Imports: 
+    DT,
+    colourpicker,
+    ggplot2,
+    VennDiagram,
+    shinyFiles,
+    shinydashboard,
+    DESeq2,
+    pheatmap,
+    golem,
+    shiny,
+    shinythemes,
+    shinyWidgets,
+    shinyjs,
+    rlang,
+    dashboardthemes,
+    matrixStats,
+    elliptic,
+    utils,
+    config,
+    writexl,
+    readxl,
+    dplyr,
+    tikzDevice
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1
