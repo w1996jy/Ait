@@ -59,7 +59,7 @@ git push -f origin master
 git fetch
 git merge
 ```
-### R包开发
+### R包开发记录
 
 ```
 rm(list = ls())
