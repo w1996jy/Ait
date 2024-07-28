@@ -1,3 +1,16 @@
+#' Draw a deseq2
+#' @name deseq2_ui
+#' @param id A time-series omics matrix.
+#' @import shiny
+#' @import shinythemes
+#' @import dashboardthemes
+#' @import shinydashboard
+#' @import shinyWidgets
+#' @import DT
+#' @import DESeq2
+#' @import pheatmap
+#' @import ggplot2
+
 library(shiny)
 library(shinythemes)
 library(dashboardthemes)

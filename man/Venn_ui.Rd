@@ -2,10 +2,10 @@
 % Please edit documentation in R/Venn.R
 \name{Venn_ui}
 \alias{Venn_ui}
-\title{Venn_ui}
+\title{Venn Diagram UI Module}
 \usage{
 Venn_ui(id)
 }
 \description{
-Venn_ui
+UI for creating Venn diagrams
 }
