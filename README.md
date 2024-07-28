@@ -47,3 +47,48 @@ git push -f origin master
 git fetch
 git merge
 ```
+
+```
+rm(list = ls())
+library(readxl)
+library(tidyverse)
+maize_t2g.kegg <- read_excel("D:/R项目/B73_xyl-1_xyl-2蛋白组/B73_xyl-1_xyl-2_Proteome/data/B73_xyl-1_xyl-2_Proteome_KEGG_background.xlsx",
+                       sheet = 1)
+usethis::use_data(maize_t2g.kegg, internal = TRUE)
+usethis::use_data(maize_t2g.kegg)
+maize_t2n.kegg<- read_excel("D:/R项目/B73_xyl-1_xyl-2蛋白组/B73_xyl-1_xyl-2_Proteome/data/B73_xyl-1_xyl-2_Proteome_KEGG_background.xlsx",
+                      sheet = 2)
+usethis::use_data(maize_t2n.kegg)
+
+maize_t2g.go <- read_excel("D:/R项目/B73_xyl-1_xyl-2蛋白组/B73_xyl-1_xyl-2_Proteome/data/GO_Enrichment.xlsx",
+                             sheet = 1)
+usethis::use_data(maize_t2g.go)
+maize_t2n.go<- read_excel("D:/R项目/B73_xyl-1_xyl-2蛋白组/B73_xyl-1_xyl-2_Proteome/data/GO_Enrichment.xlsx",
+                            sheet = 2)
+usethis::use_data(maize_t2n.go)
+
+gene_matrix <- read.delim("D:/R项目/B73_xyl-1_xyl-2蛋白组/B73_xyl-1_xyl-2_Proteome/result/data_clean.csv", sep = ",")
+maize_gene_list <- gene_matrix %>% 
+  select(X) %>% 
+  rename(gene = X)
+usethis::use_data(maize_gene_list)
+
+# https://combine-australia.github.io/r-pkg-dev/checking-you-package.html
+
+library('devtools')
+# 填写DESCRIPTION
+# 删除NAMESPACE和原始的R文件 man里面的hello
+load_all()
+document()
+document(pkg = ".",c("collate", "rd"))
+# use_mit_license()
+# use_testthat()
+
+check()
+check(document = FALSE)
+
+install()
+
+build()
+
+```
