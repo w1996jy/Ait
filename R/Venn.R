@@ -6,7 +6,11 @@ library(grid)
 
 #' Venn Diagram UI Module
 #' @description UI for creating Venn diagrams
-#' 
+#' @import VennDiagram
+#' @import shiny
+#' @import shinyWidgets
+#' @import ggplot2
+#' @import grid
 Venn_ui <- function(id) {
   ns <- NS(id)
   tagList(
