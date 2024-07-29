@@ -19,4 +19,5 @@ app_server <- function(input, output, session) {
   # correlation analysis
   callModule(cor_server, "cor_id")
   callModule(describe_server, "describe_id") # 添加描述性统计模块
+  callModule(svg_server, "svg_converter")
 }

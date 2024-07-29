@@ -21,6 +21,9 @@ app_ui <- function(request) {
                tabPanel("Bar", Bar_ui("bar")),
                tabPanel("Venn", Venn_ui("venn"))
     ),
+    navbarMenu("Convert",
+               tabPanel("SVG to ...", svg_ui("svg_converter"))
+    ),
     tabPanel("Help", help_ui("project_init_id"))
   )
 }
