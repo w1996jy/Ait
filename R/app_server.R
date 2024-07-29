@@ -18,4 +18,5 @@ app_server <- function(input, output, session) {
   callModule(deseq2_server, "deseq2_id")
   # correlation analysis
   callModule(cor_server, "cor_id")
+  callModule(describe_server, "describe_id") # 添加描述性统计模块
 }
