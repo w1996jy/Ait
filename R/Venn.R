@@ -1,18 +1,9 @@
-# 'Venn_server' 函数中使用了 tikzDevice 包，需要添加声明
-# 添加 tikzDevice 的导入声明
-# @importFrom tikzDevice tikz
-
 library(shiny)
 library(VennDiagram)
 library(shinyWidgets)
 library(ggplot2)
 library(grid)
-# 移除不使用的包
-# library(dplyr)
-# library(readxl)
-# library(shinyFiles)
-# library(writexl)
-library(tikzDevice) # 确保在代码中声明并使用
+library(tikzDevice)
 
 #' Venn Diagram UI Module
 #' @description UI for creating Venn diagrams
@@ -21,7 +12,6 @@ library(tikzDevice) # 确保在代码中声明并使用
 #' @import shinyWidgets
 #' @import ggplot2
 #' @import grid
-#' @importFrom tikzDevice tikz
 Venn_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -36,7 +26,7 @@ Venn_ui <- function(id) {
         colourpicker::colourInput(ns("color5"), "Select Color 5", value = "purple"),
         numericInput(ns("width"), "Width (inches)", value = 7),
         numericInput(ns("height"), "Height (inches)", value = 7),
-        selectInput(ns("format"), "Select Format", choices = c("pdf", "png", "jpg", "svg", "eps", "ps", "tex", "jpeg", "bmp", "wmf")),
+        selectInput(ns("format"), "Select Format", choices = c("pdf", "png", "jpg", "svg", "eps", "ps", "tex", "jpeg", "bmp")),
         actionButton(ns("plot_venn"), "Plot Venn Diagram"),
         downloadButton(ns("downloadVenn"), "Download Venn Diagram")
       ),
@@ -49,12 +39,8 @@ Venn_ui <- function(id) {
 
 #' Venn Diagram Server Module
 #' @description Server logic for creating Venn diagrams
-#' @import shiny
-#' @import VennDiagram
-#' @import shinyWidgets
-#' @import ggplot2
-#' @import grid
-#' @importFrom grDevices bmp dev.off jpeg pdf png postscript svg win.metafile
+#' @importFrom grDevices pdf png jpeg svg postscript bmp dev.off
+#' @noRd
 Venn_server <- function(input, output, session) {
   ns <- session$ns
   
@@ -107,7 +93,13 @@ Venn_server <- function(input, output, session) {
                        tex = function(...) tikzDevice::tikz(...),
                        jpeg = jpeg,
                        bmp = bmp,
-                       wmf = win.metafile
+                       wmf = function(...) {
+                         if (.Platform$OS.type == "windows") {
+                           win.metafile(...)
+                         } else {
+                           stop("wmf format is only supported on Windows")
+                         }
+                       }
       )
       
       device(file, width = input$width, height = input$height)
