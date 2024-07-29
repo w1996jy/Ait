@@ -14,11 +14,16 @@ cor_ui <- function(id) {
           fileInput(ns("data_file"), "Upload CSV data"),
           actionButton(ns("run_analysis"), "Run Correlation Analysis"),
           hr(),
+          sliderInput(ns("plot_width"), "Plot Width (inches):", min = 5, max = 20, value = 10),
+          sliderInput(ns("plot_height"), "Plot Height (inches):", min = 5, max = 20, value = 10),
+          sliderInput(ns("fontsize"), "Font Size:", min = 10, max = 30, value = 15),
+          radioButtons(ns("color_scheme"), "Color Scheme:",
+                       choices = list("Red-Blue" = "RdBu", "Green-Blue" = "GnBu", "Heat" = "heat")),
           radioButtons(ns("download_format"), "Select download format:",
                        choices = list("PDF" = "pdf", "PNG" = "png", "JPG" = "jpg", "SVG" = "svg")),
-          downloadButton(ns("download_plot"), "Download Correlation Heatmap"),
-          downloadButton(ns("download_table"), "Download Correlation Table"),
-          downloadButton(ns("download_p_table"), "Download P-Value Table")
+          div(style = "margin-bottom: 10px;", downloadButton(ns("download_plot"), "Download Correlation Heatmap")),
+          div(style = "margin-bottom: 10px;", downloadButton(ns("download_table"), "Download Correlation Table")),
+          div(style = "margin-bottom: 10px;", downloadButton(ns("download_p_table"), "Download P-Value Table"))
         ),
         mainPanel(
           plotOutput(ns("heatmap_plot")),
@@ -70,10 +75,16 @@ cor_server <- function(input, output, session) {
   
   output$heatmap_plot <- renderPlot({
     req(cor_and_pval())
+    color_scheme <- switch(input$color_scheme,
+                           "RdBu" = colorRampPalette(c("blue", "white", "red"))(100),
+                           "GnBu" = colorRampPalette(c("green", "white", "blue"))(100),
+                           "heat" = colorRampPalette(c("red", "yellow", "white"))(100))
     pheatmap(cor_and_pval()$cor, 
              display_numbers = TRUE, 
              cluster_rows = FALSE, 
-             cluster_cols = FALSE)
+             cluster_cols = FALSE,
+             fontsize = input$fontsize,
+             color = color_scheme)
   })
   
   output$cor_table_title <- renderUI({
@@ -109,13 +120,22 @@ cor_server <- function(input, output, session) {
       paste("correlation_heatmap.", input$download_format, sep = "")
     },
     content = function(file) {
+      color_scheme <- switch(input$color_scheme,
+                             "RdBu" = colorRampPalette(c("blue", "white", "red"))(100),
+                             "GnBu" = colorRampPalette(c("green", "white", "blue"))(100),
+                             "heat" = colorRampPalette(c("red", "yellow", "white"))(100))
       ggsave(file, plot = pheatmap(cor_and_pval()$cor, 
                                    display_numbers = TRUE, 
                                    cluster_rows = FALSE, 
                                    cluster_cols = FALSE, 
+                                   fontsize = input$fontsize,
+                                   color = color_scheme,
                                    silent = TRUE)$gtable, 
-             device = input$download_format)
-    }
+             device = input$download_format,
+             width = input$plot_width,
+             height = input$plot_height)
+    },
+    contentType = "image"
   )
   
   output$download_table <- downloadHandler(
@@ -124,7 +144,8 @@ cor_server <- function(input, output, session) {
     },
     content = function(file) {
       write.csv(as.data.frame(cor_and_pval()$cor), file)
-    }
+    },
+    contentType = "text/csv"
   )
   
   output$download_p_table <- downloadHandler(
@@ -133,6 +154,7 @@ cor_server <- function(input, output, session) {
     },
     content = function(file) {
       write.csv(as.data.frame(cor_and_pval()$pval), file)
-    }
+    },
+    contentType = "text/csv"
   )
 }
