@@ -16,4 +16,6 @@ app_server <- function(input, output, session) {
   callModule(Venn_server, "venn")
   # deseq2
   callModule(deseq2_server, "deseq2_id")
+  # correlation analysis
+  callModule(cor_server, "cor_id")
 }
