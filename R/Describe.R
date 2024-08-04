@@ -3,6 +3,8 @@
 #' @param id Namespace ID
 #' @description
 #' Creates the UI for descriptive statistics analysis using psych::describe
+#' @import shiny
+#' @import DT
 #' @name describe_ui
 describe_ui <- function(id) {
   ns <- NS(id)
@@ -31,6 +33,10 @@ describe_ui <- function(id) {
 #' @description
 #' Handles the server-side logic for descriptive statistics analysis using psych::describe
 #' @name describe_server
+#' @importFrom psych describe
+#' @importFrom DT datatable
+#' @importFrom utils read.csv
+#' @noRd
 describe_server <- function(input, output, session) {
   data <- reactive({
     req(input$data_file)
@@ -39,7 +45,7 @@ describe_server <- function(input, output, session) {
   
   desc_stats <- eventReactive(input$run_analysis, {
     req(data())
-    psych::describe(data())
+    describe(data())
   })
   
   output$desc_table <- renderDT({

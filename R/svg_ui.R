@@ -4,6 +4,7 @@
 #' @description
 #' Creates the UI for SVG conversion
 #' @name svg_ui
+#' @noRd
 #'
 svg_ui <- function(id) {
   ns <- NS(id)
@@ -34,8 +35,12 @@ svg_ui <- function(id) {
 #' @param session Shiny session object
 #' @description
 #' Handles the server-side logic for SVG conversion
+#' @import rsvg
+#' @import jpeg
+#' @import png
+#' @import graphics
 #' @name svg_server
-#'
+#' @noRd
 svg_server <- function(input, output, session) {
   
   svg_file <- reactive({

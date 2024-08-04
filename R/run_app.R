@@ -9,6 +9,7 @@
 #' @importFrom shiny shinyApp
 
 # 运行指定目录下除"run_app.R"以外的所有R脚本文件
+# rm(list = ls())
 folder_path <- "E:/Rapp/Ait/R"
 all_files <- list.files(path = folder_path, pattern = "\\.R$", full.names = TRUE)
 files_to_run <- setdiff(all_files, file.path(folder_path, "run_app.R"))

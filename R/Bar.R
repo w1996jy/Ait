@@ -1,10 +1,8 @@
 #' Draw a histogram
-#'
 #' @description Creates a UI for drawing histograms.
-#'
 #' @param id A time-series omics matrix.
 #' @import shiny
-#' @import colourpicker
+#' @importFrom colourpicker colourInput
 #' @import ggplot2
 #' @import DT
 #' @import elliptic
@@ -16,7 +14,7 @@
 #' @importFrom DT dataTableOutput
 #' @name Bar_ui
 #' @noRd
-Bar_ui <- function(id) {
+bar_ui <- function(id) {
   ns <- NS(id)
   tabPanel(
     title = "Bar",
@@ -24,7 +22,7 @@ Bar_ui <- function(id) {
       sidebarPanel(
         id = ns("Sidebar"),
         # 文件上传控件
-        fileInput(ns("file_upload"), "\u4e0a\u4f20\u0020CSV\u0020\u6587\u4ef6", 
+        fileInput(ns("file_upload"), "\u4e0a\u4f20\u0020CSV\u0020\u6587\u4ef6",
                   accept = ".csv"),
         # 下拉菜单选择 x 和 y 轴变量
         selectInput(ns("x_var"), "\u9009\u62e9\u0020X\u0020\u8f6e\u8fde\u5f15\u6570\u636e\u003a",
@@ -41,14 +39,14 @@ Bar_ui <- function(id) {
         # 自定义标题、标签字体大小和颜色
         numericInput(ns("title_size"), "\u6807\u9898\u5b57\u4f53\u5927\u5c0f\u003a", 
                      value = 20, min = 1, step = 1),
-        colourpicker::colourInput(ns("title_color"), "\u6807\u9898\u989c\u8272\u003a", 
+        colourInput(ns("title_color"), "\u6807\u9898\u989c\u8272\u003a", 
                                   value = "black"),
         numericInput(ns("label_size"), "\u8f6e\u8fde\u6807\u7b7e\u5b57\u4f53\u5927\u5c0f\u003a", 
                      value = 20, min = 1, step = 1),
-        colourpicker::colourInput(ns("label_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a",
+        colourInput(ns("label_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a",
                                   value = "black"),
         # 柱子的颜色
-        colourpicker::colourInput(ns("bar_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a", 
+        colourInput(ns("bar_color"), "\u8f6e\u8fde\u6807\u7b7e\u989c\u8272\u003a", 
                                   value = "#03A9F4"),
         # 自定义下载尺寸输入框
         numericInput(ns("width"), "\u56fe\u50cf\u5bbd\u5ea6\u0020(px)\u003a", 
@@ -81,6 +79,8 @@ Bar_ui <- function(id) {
 #' @param input Shiny input object.
 #' @param output Shiny output object.
 #' @param session Shiny session object.
+#' @import shiny
+#' @import ggplot2
 #' @name Bar_server
 #' @noRd
 Bar_server <- function(input, output, session) {

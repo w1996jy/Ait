@@ -1,8 +1,10 @@
 #' UI for Correlation Analysis
 #'
 #' @param id Namespace ID
+#'
 #' @description
 #' Creates the UI for correlation analysis
+#' @import shiny
 #' @name cor_ui
 cor_ui <- function(id) {
   ns <- NS(id)
@@ -41,6 +43,8 @@ cor_ui <- function(id) {
 #' @param input Input object
 #' @param output Output object
 #' @param session Shiny session object.
+#' @importFrom stats cor.test
+#' @importFrom grDevices colorRampPalette win.metafile
 #' @description
 #' Handles the server-side logic for correlation analysis
 #' @name cor_server

@@ -16,6 +16,8 @@ Imports:
     shinyFiles,
     shinydashboard,
     DESeq2,
+    readr,
+    readxl,
     pheatmap,
     golem,
     shiny,
@@ -29,8 +31,15 @@ Imports:
     utils,
     config,
     writexl,
-    readxl,
     dplyr,
+    jpeg,
+    png,
+    rsvg,
+    SummarizedExperiment,
+    psych,
+    Biostrings,
+    conflicted,
+    seqinr,
     tikzDevice
 Encoding: UTF-8
 LazyData: true

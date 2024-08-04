@@ -45,12 +45,21 @@ deseq2_ui <- function(id) {
 #' @description Server logic for DESeq2 analysis
 #' @param input, output, session Standard shiny server arguments
 #' @import shiny
-#' @import DESeq2
+#' @importFrom DESeq2 DESeqDataSetFromMatrix
+#' @importFrom DESeq2 DESeq
+#' @importFrom DESeq2 results
 #' @import pheatmap
+#' @import ggplot2
+#' @import SummarizedExperiment
 #' @importFrom utils head write.csv
 #' @importFrom matrixStats rowVars
 #' @importFrom stats setNames
+#' @importFrom conflicted conflict_prefer
 #' @noRd
+conflicted::conflict_prefer("show", "SummarizedExperiment", "shinyjs")
+if (getRversion() >= "2.15.1") utils::globalVariables(c("log2FoldChange"))
+if (getRversion() >= "2.15.1") utils::globalVariables(c("pvalue"))
+if (getRversion() >= "2.15.1") utils::globalVariables(c("color"))
 deseq2_server <- function(input, output, session) {
   observeEvent(input$run_analysis, {
     req(input$count_file, input$meta_file)

@@ -10,8 +10,12 @@ library(tikzDevice)
 #' @import VennDiagram
 #' @import shiny
 #' @import shinyWidgets
+#' @importFrom colourpicker colourInput
 #' @import ggplot2
 #' @import grid
+#' @param id Module ID
+#' @name Venn_ui
+#' @noRd
 Venn_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -19,11 +23,11 @@ Venn_ui <- function(id) {
       sidebarPanel(
         fileInput(ns("file1"), "Choose CSV file", accept = c(".csv")),
         uiOutput(ns("col_ui")),
-        colourpicker::colourInput(ns("color1"), "Select Color 1", value = "red"),
-        colourpicker::colourInput(ns("color2"), "Select Color 2", value = "blue"),
-        colourpicker::colourInput(ns("color3"), "Select Color 3", value = "green"),
-        colourpicker::colourInput(ns("color4"), "Select Color 4", value = "yellow"),
-        colourpicker::colourInput(ns("color5"), "Select Color 5", value = "purple"),
+        colourInput(ns("color1"), "Select Color 1", value = "red"),
+        colourInput(ns("color2"), "Select Color 2", value = "blue"),
+        colourInput(ns("color3"), "Select Color 3", value = "green"),
+        colourInput(ns("color4"), "Select Color 4", value = "yellow"),
+        colourInput(ns("color5"), "Select Color 5", value = "purple"),
         numericInput(ns("width"), "Width (inches)", value = 7),
         numericInput(ns("height"), "Height (inches)", value = 7),
         selectInput(ns("format"), "Select Format", choices = c("pdf", "png", "jpg", "svg", "eps", "ps", "tex", "jpeg", "bmp")),
@@ -40,6 +44,8 @@ Venn_ui <- function(id) {
 #' Venn Diagram Server Module
 #' @description Server logic for creating Venn diagrams
 #' @importFrom grDevices pdf png jpeg svg postscript bmp dev.off
+#' @name Venn_server
+#' @import grDevices
 #' @noRd
 Venn_server <- function(input, output, session) {
   ns <- session$ns
