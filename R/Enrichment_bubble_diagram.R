@@ -1,9 +1,8 @@
+if (!require('ggplot2')) install.packages("ggplot2")
+if (!require('colourpicker')) install.packages("colourpicker")
 #' 定义富集气泡图的用户界面
-#'
 #' @description 创建用于生成富集气泡图的 Shiny 应用程序界面。
-#'
 #' @param id 模块ID
-#'
 #' @return 返回一个 Shiny UI 布局。
 #' @import shiny
 #' @name enrichment_bubble_ui

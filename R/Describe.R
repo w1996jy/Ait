@@ -1,3 +1,4 @@
+if (!require('DT')) install.packages("DT")
 #' UI for Descriptive Statistics
 #'
 #' @param id Namespace ID

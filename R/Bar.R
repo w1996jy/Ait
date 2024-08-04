@@ -1,3 +1,6 @@
+if (!require('colourpicker')) install.packages("colourpicker")
+if (!require('DT')) install.packages("DT")
+if (!require('ggplot2')) install.packages("ggplot2")
 #' Draw a histogram
 #' @description Creates a UI for drawing histograms.
 #' @param id A time-series omics matrix.

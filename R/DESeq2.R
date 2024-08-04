@@ -1,7 +1,7 @@
+if (!require('DT')) install.packages("DT")
+if (!require('ggplot2')) install.packages("ggplot2")
 #' Draw a deseq2
-#'
 #' @description Creates a UI for DESeq2 analysis.
-#'
 #' @param id A time-series omics matrix.
 #' @import shiny
 #' @import shinythemes

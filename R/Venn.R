@@ -4,7 +4,8 @@ library(shinyWidgets)
 library(ggplot2)
 library(grid)
 library(tikzDevice)
-
+if (!require('colourpicker')) install.packages("colourpicker")
+if (!require('VennDiagram')) install.packages("VennDiagram")
 #' Venn Diagram UI Module
 #' @description UI for creating Venn diagrams
 #' @import VennDiagram
