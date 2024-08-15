@@ -25,4 +25,6 @@ app_server <- function(input, output, session) {
   callModule(Sequence_extract_server, "sequence_extract")
   # reverse_complement
   callModule(reverse_complement_server, "reverse_complement")
+  # VolcanoPlot_server 模块
+  callModule(VolcanoPlot_server, "volcano_plot")
 }
