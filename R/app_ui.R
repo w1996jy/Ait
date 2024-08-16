@@ -36,6 +36,10 @@ app_ui <- function(request) {
       tabPanel("SVG to ...", svg_ui("svg_converter"))
     ),
     tabPanel(
+      "Web",
+      Web_ui("Web_id")
+    ),
+    tabPanel(
              "Help",
              help_ui("project_init_id"))
   )
