@@ -32,5 +32,6 @@ app_server <- function(input, output, session) {
   # 使用 callModule 调用 Histogram 模块
   callModule(histogram_server, "histogram")
   callModule(pca_server, "pca")
+  callModule(seqLogo_server, "seqLogoModule")
   
 }

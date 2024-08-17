@@ -32,9 +32,8 @@ app_ui <- function(request) {
       navbarMenu(
         "Sequence",
         tabPanel("Sequence Extract", Sequence_extract_ui("sequence_extract")),
-        tabPanel(
-          "Reverse Complement", reverse_complement_ui("reverse_complement")
-        )
+        tabPanel("Reverse Complement", reverse_complement_ui("reverse_complement")),
+        tabPanel("Sequence Logo",seqLogo_ui("seqLogoModule"))
       ),
       navbarMenu(
         "Convert",
