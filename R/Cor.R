@@ -44,7 +44,7 @@ cor_ui <- function(id) {
 #' @param output Output object
 #' @param session Shiny session object.
 #' @importFrom stats cor.test
-#' @importFrom grDevices colorRampPalette win.metafile
+#' @importFrom grDevices colorRampPalette
 #' @description
 #' Handles the server-side logic for correlation analysis
 #' @name cor_server
