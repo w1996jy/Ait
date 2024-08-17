@@ -32,7 +32,7 @@ seqLogo_ui <- function(id, title = "Sequence Logo") {
 #' @param session Shiny session object
 #' @importFrom ggseqlogo ggseqlogo
 #' @importFrom Biostrings readDNAStringSet
-#' @importFrom ggsave ggsave
+#' @importFrom ggplot2 ggsave
 seqLogo_server <- function(input, output, session) {
   ns <- session$ns
   
