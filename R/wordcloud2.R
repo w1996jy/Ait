@@ -42,8 +42,8 @@ wordcloud2_ui <- function(id) {
 #' @param input Shiny server input.
 #' @param output Shiny server output.
 #' @param session Shiny server session.
-#' @importFrom shiny reactive renderWordcloud2 downloadHandler
-#' @importFrom wordcloud2 wordcloud2
+#' @importFrom shiny reactive downloadHandler
+#' @importFrom wordcloud2 wordcloud2 renderWordcloud2
 #' @importFrom webshot webshot
 #' @importFrom htmlwidgets saveWidget
 #' @return Does not return anything; it registers reactive values and outputs for a Shiny module.
