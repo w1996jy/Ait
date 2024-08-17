@@ -19,6 +19,7 @@ library(colourpicker)
 library(readxl)
 library(dplyr)
 library(writexl)
+library(wordcloud2)
 
 #' Custom Logo
 #' 

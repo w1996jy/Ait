@@ -29,4 +29,7 @@ app_server <- function(input, output, session) {
   callModule(VolcanoPlot_server, "volcano_plot")
   # wordcloud2_server 模块
   callModule(wordcloud2_server, "wordcloudModule")
+  # 使用 callModule 调用 Histogram 模块
+  callModule(histogram_server, "histogram")
+  
 }
