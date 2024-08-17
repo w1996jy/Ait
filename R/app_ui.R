@@ -26,7 +26,8 @@ app_ui <- function(request) {
         tabPanel("Enrichment Bubble", enrichment_bubble_ui("enrichment_bubble")),
         tabPanel("Volcano Plot", VolcanoPlot_ui("volcano_plot")),
         tabPanel("wordcloud Plot", wordcloud2_ui("wordcloudModule")),
-        tabPanel("Histogram", histogram_ui("histogram"))
+        tabPanel("Histogram", histogram_ui("histogram")),
+        tabPanel("PCA", pca_ui("pca"))
       ),
       navbarMenu(
         "Sequence",

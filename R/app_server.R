@@ -31,5 +31,6 @@ app_server <- function(input, output, session) {
   callModule(wordcloud2_server, "wordcloudModule")
   # 使用 callModule 调用 Histogram 模块
   callModule(histogram_server, "histogram")
+  callModule(pca_server, "pca")
   
 }
