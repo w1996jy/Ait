@@ -22,7 +22,8 @@ app_ui <- function(request) {
       tabPanel("Bar", bar_ui("bar")),
       tabPanel("Venn", Venn_ui("venn")),
       tabPanel("Enrichment Bubble", enrichment_bubble_ui("enrichment_bubble")),
-      tabPanel("Volcano Plot", VolcanoPlot_ui("volcano_plot"))  # 添加火山图模块
+      tabPanel("Volcano Plot", VolcanoPlot_ui("volcano_plot")),
+      tabPanel("wordcloud Plot", wordcloud2_ui("wordcloudModule"))
     ),
     navbarMenu(
       "Sequence",

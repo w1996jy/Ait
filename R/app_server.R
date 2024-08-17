@@ -27,4 +27,6 @@ app_server <- function(input, output, session) {
   callModule(reverse_complement_server, "reverse_complement")
   # VolcanoPlot_server 模块
   callModule(VolcanoPlot_server, "volcano_plot")
+  # wordcloud2_server 模块
+  callModule(wordcloud2_server, "wordcloudModule")
 }
