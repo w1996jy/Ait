@@ -103,36 +103,3 @@ install()
 build()
 
 ```
-
-### 下步
-
-#### 词云图
-
-
-```
-# 安装并加载所需R包
-#install.packages("wordcloud2")
-library(wordcloud2)
-
-# 查看示例数据
-# 第一列为词语名，第二列为词频数
-head(demoFreq)
-##          word freq
-## oil       oil   85
-## said     said   73
-## prices prices   48
-## opec     opec   42
-## mln       mln   31
-## the       the   26
-
-# 使用wordcloud2函数绘制词云图
-# 默认绘图
-wordcloud2(demoFreq)
-
-```
-
-### 链接网站（参看迈维代谢）
-
-### 使用说明书
-
-
