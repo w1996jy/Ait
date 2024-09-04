@@ -33,5 +33,6 @@ app_server <- function(input, output, session) {
   callModule(histogram_server, "histogram")
   callModule(pca_server, "pca")
   callModule(seqLogo_server, "seqLogoModule")
+  callModule(corxy_server, "correlation1")
   
 }

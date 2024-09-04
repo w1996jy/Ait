@@ -27,7 +27,8 @@ app_ui <- function(request) {
         tabPanel("Volcano Plot", VolcanoPlot_ui("volcano_plot")),
         tabPanel("wordcloud Plot", wordcloud2_ui("wordcloudModule")),
         tabPanel("Histogram", histogram_ui("histogram")),
-        tabPanel("PCA", pca_ui("pca"))
+        tabPanel("PCA", pca_ui("pca")),
+        tabPanel("Correlation Analysis of Two Traits", corxy_ui("correlation1"))
       ),
       navbarMenu(
         "Sequence",
