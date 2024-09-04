@@ -43,6 +43,8 @@ upset_ui <- function(id) {
 #' @param input A list of input values from the UI.
 #' @param output A list of output values to be rendered in the UI.
 #' @param session The Shiny session object.
+#' @importFrom tidyr pivot_longer
+#' @import dplyr
 #' @return NULL
 #' @name upset_server
 upset_server <- function(input, output, session) {
@@ -60,12 +62,12 @@ upset_server <- function(input, output, session) {
   upset_data <- reactive({
     df <- dataInput()
     long_df <- df %>%
-      pivot_longer(cols = everything(), names_to = "Set", values_to = "Name")
+      tidyr::pivot_longer(cols = everything(), names_to = "Set", values_to = "Name")
     
     long_df %>%
-      distinct(Name, Set) %>%
-      pivot_wider(names_from = Set, values_from = Set, values_fill = list(Set = "0")) %>%
-      mutate(across(-Name, ~ifelse(. == "0", 0, 1))) %>% 
+      dplyr::distinct(Name, Set) %>%
+      tidyr::pivot_wider(names_from = Set, values_from = Set, values_fill = list(Set = "0")) %>%
+      dplyr::mutate(across(-Name, ~ifelse(. == "0", 0, 1))) %>% 
       as.data.frame()
   })
   
