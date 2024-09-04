@@ -3,10 +3,10 @@
 #' @param id A string that specifies the namespace for the module.
 #' @import shiny
 #' @import colourpicker
-#' @importFrom shiny NS tabPanel sidebarLayout sidebarPanel mainPanel fileInput uiOutput textInput colourpicker::colourInput radioButtons numericInput downloadButton plotOutput helpText tags$hr
+#' @importFrom shiny NS tabPanel sidebarLayout sidebarPanel mainPanel fileInput uiOutput textInput radioButtons numericInput downloadButton plotOutput helpText 
 #' @name corxy_ui
 #' @noRd
-
+#' 
 corxy_ui <- function(id) {
   ns <- NS(id)
   tabPanel(

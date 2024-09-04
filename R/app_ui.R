@@ -28,7 +28,8 @@ app_ui <- function(request) {
         tabPanel("wordcloud Plot", wordcloud2_ui("wordcloudModule")),
         tabPanel("Histogram", histogram_ui("histogram")),
         tabPanel("PCA", pca_ui("pca")),
-        tabPanel("Correlation Analysis of Two Traits", corxy_ui("correlation1"))
+        tabPanel("Correlation Analysis of Two Traits", corxy_ui("correlation1")),
+        tabPanel("UpSetR Visualization", upset_ui("upset"))
       ),
       navbarMenu(
         "Sequence",

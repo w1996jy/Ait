@@ -34,5 +34,6 @@ app_server <- function(input, output, session) {
   callModule(pca_server, "pca")
   callModule(seqLogo_server, "seqLogoModule")
   callModule(corxy_server, "correlation1")
+  callModule(upset_server, "upset")
   
 }

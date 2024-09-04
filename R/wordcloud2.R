@@ -8,7 +8,7 @@
 #' @importFrom shiny selectInput numericInput downloadButton mainPanel
 #' @importFrom wordcloud2 wordcloud2Output
 #' @return Returns a tab panel that includes a sidebar for inputs and a main panel for word cloud output.
-#' @export
+
 wordcloud2_ui <- function(id) {
   ns <- NS(id)
   tabPanel(
@@ -47,7 +47,7 @@ wordcloud2_ui <- function(id) {
 #' @importFrom webshot webshot
 #' @importFrom htmlwidgets saveWidget
 #' @return Does not return anything; it registers reactive values and outputs for a Shiny module.
-#' @export
+
 wordcloud2_server <- function(input, output, session) {
   textData <- reactive({
     inFile <- input$textFile
