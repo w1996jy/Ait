@@ -45,7 +45,12 @@ Imports:
     webshot,
     wordcloud2,
     ggseqlogo,
-    UpSetR
+    UpSetR,
+    Mfuzz,
+    Biobase,
+    VIM,
+    tidyr,
+    tidyverse
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2

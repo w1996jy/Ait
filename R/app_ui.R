@@ -17,7 +17,8 @@ app_ui <- function(request) {
         tabPanel("Merge File", merge_file_ui("merge_file")),
         tabPanel("Correlation Analysis", cor_ui("cor_id")),
         tabPanel("Descriptive Statistics", describe_ui("describe_id")),
-        tabPanel("DESeq2", deseq2_ui("deseq2_id"))
+        tabPanel("DESeq2", deseq2_ui("deseq2_id")),
+        tabPanel("Mfuzz Clustering", mfuzz_ui("mfuzz"))
       ),
       navbarMenu(
         "Plot",

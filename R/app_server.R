@@ -35,5 +35,6 @@ app_server <- function(input, output, session) {
   callModule(seqLogo_server, "seqLogoModule")
   callModule(corxy_server, "correlation1")
   callModule(upset_server, "upset")
+  callModule(mfuzz_server, "mfuzz")
   
 }
