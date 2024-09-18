@@ -36,5 +36,6 @@ app_server <- function(input, output, session) {
   callModule(corxy_server, "correlation1")
   callModule(upset_server, "upset")
   callModule(mfuzz_server, "mfuzz")
+  callModule(dataTransform_server, "dataTransform")
   
 }

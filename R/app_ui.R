@@ -15,6 +15,7 @@ app_ui <- function(request) {
       navbarMenu(
         "Analysis",
         tabPanel("Merge File", merge_file_ui("merge_file")),
+        tabPanel("dataTransform",dataTransform_ui("dataTransform")),
         tabPanel("Correlation Analysis", cor_ui("cor_id")),
         tabPanel("Descriptive Statistics", describe_ui("describe_id")),
         tabPanel("DESeq2", deseq2_ui("deseq2_id")),
