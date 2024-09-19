@@ -31,7 +31,8 @@ app_ui <- function(request) {
         tabPanel("Histogram", histogram_ui("histogram")),
         tabPanel("PCA", pca_ui("pca")),
         tabPanel("Correlation Analysis of Two Traits", corxy_ui("correlation1")),
-        tabPanel("UpSetR Visualization", upset_ui("upset"))
+        tabPanel("UpSetR Visualization", upset_ui("upset")),
+        tabPanel("GO Bar Plot", GO_bar_class_ui("GO_bar_class"))
       ),
       navbarMenu(
         "Sequence",

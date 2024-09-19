@@ -37,5 +37,5 @@ app_server <- function(input, output, session) {
   callModule(upset_server, "upset")
   callModule(mfuzz_server, "mfuzz")
   callModule(dataTransform_server, "dataTransform")
-  
+  callModule(GO_bar_class_server, "GO_bar_class")
 }
