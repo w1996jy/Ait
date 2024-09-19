@@ -4,7 +4,7 @@
 OPLS_DA_ui <- function(id) {
   ns <- NS(id)
   fluidPage(
-    titlePanel("OPLS-DA"),
+    titlePanel("OPLS-DA Analyse"),
     sidebarLayout(
       sidebarPanel(
         fileInput(ns("datafile"), "Upload Metabolomics Data (CSV)", accept = ".csv"),
@@ -58,7 +58,7 @@ OPLS_DA_server <- function(input, output, session) {
       pull(Group)
     output$OPLS_DA_Plot <- renderPlot({
       # Run OPLS-DA
-      ATR_oplsda <- opls(t(df), 
+      ATR_oplsda <- ropls::opls(t(df), 
                          group, 
                          predI = 1,
                          orthoI = 1,
@@ -66,6 +66,12 @@ OPLS_DA_server <- function(input, output, session) {
                          log10L = TRUE)
     })
     output$OPLS_DA_ggplot_Plot <- renderPlot({
+      ATR_oplsda <- ropls::opls(t(df), 
+                                group, 
+                                predI = 1,
+                                orthoI = 1,
+                                crossvalI = 6,
+                                log10L = TRUE)
       OPLS_defentu <- data.frame(ATR_oplsda@scoreMN,
                                  ATR_oplsda@orthoScoreMN)
       OPLS_defentu$Group=group
@@ -74,7 +80,7 @@ OPLS_DA_server <- function(input, output, session) {
       theme_set(ggprism::theme_prism(border = TRUE))
       ggplot(OPLS_defentu,aes(p1,o1,label = rownames(data)))+
         geom_point(aes(colour=Group),shape=16,size = 3)+
-        theme(legend.background = element_rect(colour="black", size=0.5))+
+        #theme(legend.background = element_rect(colour="black", size=0.5))+
         labs(x=paste0('T score[1] (',ATR_oplsda@modelDF$R2X[1]*100,'%)'),
              y=paste0('Orthogonal T score[1] (',ATR_oplsda@modelDF$R2X[2]*100,'%)'))+
         stat_ellipse(aes(fill=Group),
@@ -107,7 +113,7 @@ OPLS_DA_server <- function(input, output, session) {
         pull(Group)
       output$OPLS_DA_Plot <- renderPlot({
         # Run OPLS-DA
-        ATR_oplsda <- opls(t(df), 
+        ATR_oplsda <- ropls::opls(t(df), 
                            group, 
                            predI = 1,
                            orthoI = 1,

@@ -42,11 +42,11 @@ CCA_server <- function(input, output, session) {
     file2 <- as.matrix(file2)  # Convert to matrix
     
     # Perform Canonical Correlation Analysis (CCA)
-    res.cc <- cc(file1, file2)
+    res.cc <- CCA::cc(file1, file2)
     
     # Render the CCA plot
     output$CCA_Plot <- renderPlot({
-      plt.cc(res.cc, d1 = 1, d2 = 3, type = "v", var.label = TRUE)
+      CCA::plt.cc(res.cc, d1 = 1, d2 = 3, type = "v", var.label = TRUE)
     })
   })
   
@@ -70,10 +70,10 @@ CCA_server <- function(input, output, session) {
       file2 <- as.matrix(file2)  # Convert to matrix
       
       # Perform Canonical Correlation Analysis (CCA)
-      res.cc <- cc(file1, file2)
+      res.cc <- CCA::cc(file1, file2)
       
       # Create and print the CCA plot
-      plt.cc(res.cc, d1 = 1, d2 = 3, type = "v", var.label = TRUE)
+      CCA::plt.cc(res.cc, d1 = 1, d2 = 3, type = "v", var.label = TRUE)
       
       dev.off()  # Close PDF device
     }

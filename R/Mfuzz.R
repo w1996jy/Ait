@@ -60,7 +60,7 @@ mfuzz_server <- function(input, output, session) {
     yeastF_kNN <- VIM::kNN(yeast, k = 3)
     rownames(yeastF_kNN) <- rownames(yeast)
     yeastF_clean <- yeastF_kNN %>% 
-      select(!contains("imp")) %>% 
+      dplyr::select(!contains("imp")) %>% 
       as.data.frame() %>% 
       filter(rowSums(.) != 0)
     
@@ -100,7 +100,7 @@ mfuzz_server <- function(input, output, session) {
     # Plot clustering result
     output$mfuzzPlot <- renderPlot({
       req(cl)
-      mfuzz.plot(yeastF, cl, mfrow = c(2, 3), new.window = FALSE)
+      Mfuzz::mfuzz.plot(yeastF, cl, mfrow = c(2, 3), new.window = FALSE)
     })
     
     # Show cluster summary
@@ -128,7 +128,7 @@ mfuzz_server <- function(input, output, session) {
     content = function(file) {
       req(clusteringResult())
       pdf(file, width = 8, height = 6)
-      mfuzz.plot(clusteringResult()$data, clusteringResult()$cluster, mfrow = c(2, 3), new.window = FALSE)
+      Mfuzz::mfuzz.plot(clusteringResult()$data, clusteringResult()$cluster, mfrow = c(2, 3), new.window = FALSE)
       dev.off()
     }
   )
