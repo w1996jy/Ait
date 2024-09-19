@@ -33,7 +33,8 @@ app_ui <- function(request) {
         tabPanel("Correlation Analysis of Two Traits", corxy_ui("correlation1")),
         tabPanel("UpSetR Visualization", upset_ui("upset")),
         tabPanel("GO Bar Plot", GO_bar_class_ui("GO_bar_class")),
-        tabPanel("OPLS-DA Analyse", OPLS_DA_ui("OPLS_DA"))
+        tabPanel("OPLS-DA Analyse", OPLS_DA_ui("OPLS_DA")),
+        tabPanel("CCA Analyse", CCA_ui("CCA"))
       ),
       navbarMenu(
         "Sequence",

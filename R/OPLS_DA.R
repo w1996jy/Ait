@@ -1,3 +1,6 @@
+#' UI Function for OPLS-DA Module
+#' @name OPLS_DA_ui
+
 OPLS_DA_ui <- function(id) {
   ns <- NS(id)
   fluidPage(
@@ -35,6 +38,10 @@ OPLS_DA_ui <- function(id) {
     )
   )
 }
+#' Server Function for OPLS-DA Module
+#' @import ropls
+#' @import ggplot2
+#' @name OPLS_DA_server
 OPLS_DA_server <- function(input, output, session) {
   ns <- session$ns
   observeEvent(input$run, {

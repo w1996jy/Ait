@@ -50,7 +50,9 @@ Imports:
     Biobase,
     VIM,
     tidyr,
-    tidyverse
+    tidyverse,
+    ropls,
+    CCA
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
