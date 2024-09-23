@@ -72,7 +72,7 @@ mfuzz_server <- function(input, output, session) {
     
     # Convert to ExpressionSet
     yeastF_clean <- tryCatch({
-      ExpressionSet(assayData = data.matrix(yeastF_clean))
+      Biobase::ExpressionSet(assayData = data.matrix(yeastF_clean))
     }, error = function(e) {
       showNotification("Failed to create ExpressionSet object.", type = "error")
       return(NULL)
@@ -83,12 +83,12 @@ mfuzz_server <- function(input, output, session) {
       return(NULL)
     }
     
-    yeastF <- standardise(yeastF_clean)
+    yeastF <- Mfuzz::standardise(yeastF_clean)
     
     # Fuzziness estimation and clustering
     m <- input$fuzziness
     cl <- tryCatch({
-      mfuzz(yeastF, c = input$clusters, m = m)
+      Mfuzz::mfuzz(yeastF, c = input$clusters, m = m)
     }, error = function(e) {
       showNotification("Clustering failed.", type = "error")
       return(NULL)
