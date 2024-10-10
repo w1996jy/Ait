@@ -40,4 +40,5 @@ app_server <- function(input, output, session) {
   callModule(GO_bar_class_server, "GO_bar_class")
   callModule(OPLS_DA_server, "OPLS_DA")
   callModule(CCA_server, "CCA")
+  callModule(kmeans_server, "kmeans")
 }
