@@ -53,7 +53,8 @@ Imports:
     tidyverse,
     ropls,
     CCA,
-    KmeansTrendAnalyzer
+    KmeansTrendAnalyzer,
+    ggridges
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2

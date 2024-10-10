@@ -41,4 +41,6 @@ app_server <- function(input, output, session) {
   callModule(OPLS_DA_server, "OPLS_DA")
   callModule(CCA_server, "CCA")
   callModule(kmeans_server, "kmeans")
+  callModule(ridgePlot_server, "ridgePlot")
+  
 }
