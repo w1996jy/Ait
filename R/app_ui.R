@@ -20,7 +20,9 @@ app_ui <- function(request) {
         tabPanel("Descriptive Statistics", describe_ui("describe_id")),
         tabPanel("DESeq2", deseq2_ui("deseq2_id")),
         tabPanel("Mfuzz Clustering", mfuzz_ui("mfuzz")),
-        tabPanel("Kmeans analyse", kmeans_ui("kmeans"))
+        tabPanel("Kmeans analyse", kmeans_ui("kmeans")),
+        tabPanel("KEGG Pathway Annotation", KEGG_ann_ui("KEGG_ann"))
+        
       ),
       navbarMenu(
         "Plot",

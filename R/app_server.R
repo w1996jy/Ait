@@ -42,5 +42,5 @@ app_server <- function(input, output, session) {
   callModule(CCA_server, "CCA")
   callModule(kmeans_server, "kmeans")
   callModule(ridgePlot_server, "ridgePlot")
-  
+  callModule(KEGG_ann_server, "KEGG_ann")
 }
