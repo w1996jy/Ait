@@ -38,7 +38,9 @@ app_ui <- function(request) {
         tabPanel("GO Bar Plot", GO_bar_class_ui("GO_bar_class")),
         tabPanel("OPLS-DA Analyse", OPLS_DA_ui("OPLS_DA")),
         tabPanel("CCA Analyse", CCA_ui("CCA")),
-        tabPanel("Ridge Plot", ridgePlot_ui("ridgePlot"))
+        tabPanel("Ridge Plot", ridgePlot_ui("ridgePlot")),
+        tabPanel("Boxplot", boxplot_ui("boxplot"))
+        
       ),
       navbarMenu(
         "Sequence",

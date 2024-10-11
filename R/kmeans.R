@@ -26,14 +26,14 @@ kmeans_server <- function(input, output, session) {
   ns <- session$ns
   uploaded_data <- reactive({
     req(input$file)  # Ensure the file is uploaded
-    read.csv(input$file$datapath)  # Read the CSV file
+    read.csv(input$file$datapath,row.names = 1)  # Read the CSV file
   })
   observeEvent(input$run, {
     output$KmeansPlot <- renderPlot({
       req(uploaded_data())  # Ensure data is available
       df <- uploaded_data()
       
-      KmeansTrendAnalyzer::KmeansR(result,centers = 6,table = TRUE)
+      KmeansTrendAnalyzer::KmeansR(df,centers = 6,table = TRUE)
     })
   })
   # 下载图表为PDF
