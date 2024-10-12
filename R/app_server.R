@@ -18,7 +18,7 @@ app_server <- function(input, output, session) {
   # correlation analysis
   callModule(cor_server, "cor_id")
   callModule(describe_server, "describe_id") # 添加描述性统计模块
-  callModule(svg_server, "svg_converter")
+  # callModule(svg_server, "svg_converter")
   # enrichment bubble plot
   enrichment_bubble_server("enrichment_bubble")
   # sequence_extract
@@ -44,4 +44,9 @@ app_server <- function(input, output, session) {
   callModule(ridgePlot_server, "ridgePlot")
   callModule(KEGG_ann_server, "KEGG_ann")
   callModule(boxplot_server, "boxplot")
+  callModule(randomNum_server, "randomNum")
+  callModule(pie_server, "pie")
+  callModule(Long_Wide_Data_T_server, "Long_Wide_Data_T")
+  callModule(Grouping_statistics_server, "Grouping_statistics")
+  callModule(Grouping_sorting_server, "Grouping_sorting")
 }

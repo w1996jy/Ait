@@ -12,7 +12,11 @@ homepage_ui <- function(id) {
   tabPanel(
     title = "Homepage",
     fluidPage(
+      tags$head(
+        tags$link(rel = "icon", href = "./img/favicon.ico")  # 替换为你的favicon路径
+      ),
       mainPanel("Homepage")
     )
   )
 }
+
