@@ -62,7 +62,7 @@ mfuzz_server <- function(input, output, session) {
     yeastF_clean <- yeastF_kNN %>% 
       dplyr::select(!contains("imp")) %>% 
       as.data.frame() %>% 
-      filter(rowSums(.) != 0)
+      dplyr::filter(rowSums(.) != 0)
     
     # 检查数据是否有效
     if (nrow(yeastF_clean) == 0 || ncol(yeastF_clean) == 0) {
@@ -106,7 +106,7 @@ mfuzz_server <- function(input, output, session) {
     # Show cluster summary
     output$clusterSummary <- renderText({
       req(yeastF_clean)
-      paste("Clusters assigned to", nrow(exprs(yeastF_clean)), "genes.")
+      paste("Clusters assigned to", nrow(Biobase::exprs(yeastF_clean)), "genes.")
     })
     # Download cluster output
     output$download <- downloadHandler(
@@ -117,7 +117,7 @@ mfuzz_server <- function(input, output, session) {
         req(clusteringResult())
         write.table(clusteringResult()$cluster$cluster, file, quote = FALSE, row.names = TRUE, col.names = FALSE, sep = "\t")
       })
-      
+    
     
   })
   # Download plot as PDF
@@ -132,5 +132,5 @@ mfuzz_server <- function(input, output, session) {
       dev.off()
     }
   )
-
+  
 }
