@@ -32,9 +32,10 @@ pie_ui <- function(id) {
   )
 }
 
-# Server函数
 pie_server <- function(input, output, session) {
   ns <- session$ns
+  classification_counts <- reactiveVal()
+  plot_obj <- reactiveVal()  # 保存生成的plot对象
   
   observeEvent(input$generate, {
     req(input$file)
@@ -44,27 +45,29 @@ pie_server <- function(input, output, session) {
     # 检查是否存在“Classification”列
     req("Classification" %in% names(data))
     
-    classification_counts <- data %>%
+    class_counts <- data %>%
       group_by(Classification) %>%
       summarise(Count = n()) %>%
       mutate(Percentage = Count / sum(Count) * 100)
     
+    classification_counts(class_counts)
+    
     output$colorSelectors <- renderUI({
-      lapply(1:nrow(classification_counts), function(i) {
+      lapply(1:nrow(class_counts), function(i) {
         colourpicker::colourInput(ns(paste("color", i, sep = "_")), 
-                                  paste("Select Color for", classification_counts$Classification[i]), 
+                                  paste("Select Color for", class_counts$Classification[i]), 
                                   value = sample(colors(), 1))
       })
     })
     
-    output$pieChart <- renderPlot({
+    observe({
       req(input$file)
       
-      color_values <- sapply(1:nrow(classification_counts), function(i) {
+      color_values <- sapply(1:nrow(class_counts), function(i) {
         input[[paste("color", i, sep = "_")]]
       })
       
-      ggplot(classification_counts, aes(x = "", y = Count, fill = Classification)) +
+      plot <- ggplot(class_counts, aes(x = "", y = Count, fill = Classification)) +
         geom_bar(stat = "identity", width = 1) +
         coord_polar(theta = "y") +
         theme_void() +
@@ -72,46 +75,37 @@ pie_server <- function(input, output, session) {
         geom_text(aes(label = paste(Count, "(", round(Percentage, 1), "%)", sep = "")),
                   position = position_stack(vjust = 0.5)) +
         scale_fill_manual(values = color_values)  # 使用动态生成的颜色
+      
+      plot_obj(plot)  # 保存plot对象以便下载
+      
+      output$pieChart <- renderPlot({
+        print(plot)  # 显示生成的饼图
+      })
     })
-    
     
     output$table <- renderDT({
-      datatable(classification_counts)
+      datatable(class_counts)
     })
-    
-    output$downloadPlot <- downloadHandler(
-      filename = function() {
-        paste("pie_chart_", Sys.Date(), ".png", sep = "")
-      },
-      content = function(file) {
-        png(file, width = input$width, height = input$height)
-        
-        color_values <- sapply(1:nrow(classification_counts), function(i) {
-          input[[ns(paste("color", i, sep = "_"))]]
-        })
-        
-        req(all(!is.na(color_values)))
-        
-        print(ggplot(classification_counts, aes(x = "", y = Count, fill = Classification)) +
-                geom_bar(stat = "identity", width = 1) +
-                coord_polar(theta = "y") +
-                theme_void() +
-                theme(legend.title = element_blank()) +
-                geom_text(aes(label = paste(Count, "(", round(Percentage, 1), "%)", sep = "")),
-                          position = position_stack(vjust = 0.5)) +
-                scale_fill_manual(values = color_values))
-        dev.off()
-      }
-    )
-    
-    output$downloadData <- downloadHandler(
-      filename = function() {
-        paste("classification_data_", Sys.Date(), ".csv", sep = "")
-      },
-      content = function(file) {
-        write.csv(classification_counts, file, row.names = FALSE)
-      }
-    )
   })
+  
+  output$downloadPlot <- downloadHandler(
+    filename = function() {
+      paste("pie_chart_", Sys.Date(), ".pdf", sep = "")
+    },
+    content = function(file) {
+      plot <- plot_obj()  # 获取生成的plot对象
+      
+      # 使用ggsave保存为PDF
+      ggsave(file, plot = plot, device = "pdf", width = input$width, height = input$height)
+    }
+  )
+  
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("classification_data_", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(classification_counts(), file, row.names = FALSE)
+    }
+  )
 }
-
