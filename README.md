@@ -11,7 +11,7 @@
 [![Browser](https://img.shields.io/badge/Year-2024-bisque)]()
 [![Browser](https://img.shields.io/badge/Publish-Not-green)]()
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ait V.1.0.0 is a powerful bioinformatics analysis tool built on the Shiny framework, designed to help researchers and data analysts easily perform data processing, statistical analysis, and visualization. The application features an intuitive user interface that supports various data analysis functions, making it suitable for in-depth exploration of biological and experimental data.
+Ait V.1.0.0 is a powerful bioinformatics analysis tool built on the Shiny framework, designed to help researchers and data analysts easily perform data processing, statistical analysis, and visualization. The application features an intuitive user interface that supports various data analysis functions, making it suitable for in-depth exploration of biological and experimental data.
 
 ### Installation
 
