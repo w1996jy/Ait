@@ -16,7 +16,7 @@ Ait V.1.0.0 is a powerful bioinformatics analysis tool built on the Shiny framew
 ## Installation
 
 ```
-remotes::install_github("w1996jy/Ait")
+devtools::install_github("w1996jy/Ait")
 ```
 ## RunAPP
 
