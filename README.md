@@ -19,7 +19,7 @@ remotes::install_github("w1996jy/Ait")
 Ait::run_Ait()
 ```
 
-#### Software Usage Method 2 (URL)
+#### Software Usage Method 2 (website)
 
 You can also directly visit the website https://pmyind-liangfei.shinyapps.io/AitApp/ to use the software.
 
