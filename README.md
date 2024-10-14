@@ -13,27 +13,27 @@
 
 Ait V.1.0.0 is a powerful bioinformatics analysis tool built on the Shiny framework, designed to help researchers and data analysts easily perform data processing, statistical analysis, and visualization. The application features an intuitive user interface that supports various data analysis functions, making it suitable for in-depth exploration of biological and experimental data.
 
-# Installation
+## Installation
 
 ```
 remotes::install_github("w1996jy/Ait")
 ```
-# RunAPP
+## RunAPP
 
-## Software Usage Method 1 (Rstudio)
+### Software Usage Method 1 (Rstudio)
 
 ```
 Ait::run_Ait()
 ```
 
-## Software Usage Method 2 (website)
+### Software Usage Method 2 (website)
 
 You can also directly visit the website https://pmyind-liangfei.shinyapps.io/AitApp/ to use the software.
 
-# Ait cookbook
+## Ait cookbook
 
 Refer to https://w1996jy.github.io/Aitcookbook/ for detailed usage instructions.
 
-# Contributing
+## Contributing
 
 We welcome any contributions! By participating in this project you agree to abide by the terms outlined in the Contributor Code of Conduct.
