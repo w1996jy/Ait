@@ -7,6 +7,8 @@
 [![Browser](https://img.shields.io/badge/Browser-Edge-lightskyblue)](https://www.microsoft.com/en-us/edge/?ocid=ORSEARCH_Bing&ch=1&form=MA13FJ)
 [![Browser](https://img.shields.io/badge/Windows-success-red)]()
 [![Browser](https://img.shields.io/badge/Linux/Mac-Not%20test-gray66)]()
+[![Browser](https://img.shields.io/badge/Develop-Yes-salmon)]()
+[![Browser](https://img.shields.io/badge/Year-2024-bisque)]()
 
 
 ### Installation
