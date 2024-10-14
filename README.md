@@ -9,6 +9,7 @@
 [![Browser](https://img.shields.io/badge/Linux/Mac-Not%20test-gray66)]()
 [![Browser](https://img.shields.io/badge/Develop-Yes-salmon)]()
 [![Browser](https://img.shields.io/badge/Year-2024-bisque)]()
+[![Browser](https://img.shields.io/badge/Publish-Not-green)]()
 
 
 ### Installation
