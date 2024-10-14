@@ -1,7 +1,7 @@
 ### Installation
 
 ```
-remotes::install_git("https://gitee.com/anhuikylin/ait.git")
+remotes::install_github("w1996jy/Ait")
 ```
 ### RunAPP
 
