@@ -1,5 +1,5 @@
 [![R version](https://img.shields.io/badge/R-v4.3.0-salmon)](https://www.r-project.org)
-[![R version](https://img.shields.io/badge/R-v4.3.0-salmon)]
+Status](http://www.bioconductor.org/shields/build/devel/bioc/clusterProfiler.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/clusterProfiler/)
 ### Installation
 
 ```
