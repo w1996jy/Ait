@@ -1,6 +1,6 @@
 # Ait
 
-<img src="https://github.com/w1996jy/Aitdemodata/blob/main/logo/logo.png)" height="200" align="right" />
+<img src="https://github.com/w1996jy/Aitdemodata/blob/main/logo/logo.png" height="200" align="right" />
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![R version](https://img.shields.io/badge/R-v4.3.0-salmon)](https://www.r-project.org)
