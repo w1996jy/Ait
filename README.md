@@ -5,7 +5,7 @@
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![R version](https://img.shields.io/badge/R-v4.3.0-salmon)](https://www.r-project.org)
 [![Browser](https://img.shields.io/badge/Browser-Edge-lightskyblue)](https://www.microsoft.com/en-us/edge/?ocid=ORSEARCH_Bing&ch=1&form=MA13FJ)
-[![Browser](https://img.shields.io/badge/Windows-success-red)]
+[![Browser](https://img.shields.io/badge/Windows-success-red)]()
 
 ### Installation
 
