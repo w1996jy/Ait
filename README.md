@@ -18,6 +18,6 @@ Ait::run_Ait()
 
 You can also directly visit the website https://pmyind-liangfei.shinyapps.io/AitApp/ to use the software.
 
-### usage
+### Ait cookbook
 
 Refer to https://w1996jy.github.io/Aitcookbook/ for detailed usage instructions.
