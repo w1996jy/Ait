@@ -1,68 +1,52 @@
 Package: Ait
-Type: Package
-Title: A Newly Developed R Package
-Version: 0.0.1
-Author: Fei Liang <liangfei@mail.example.com>
-Maintainer: Fei Liang <tplate@acm.org>
-Description: This package provides an example Shiny application 
- that demonstrates how to build interactive web applications 
- using the Shiny framework and golem package.
+Title: An Amazing Shiny App
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "firstname",
+           family = "lastname",
+           role = c("aut", "cre"),
+           email = "your@email.com")
+Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
-    DT,
-    colourpicker,
-    ggplot2,
-    VennDiagram,
-    shinyFiles,
-    shinydashboard,
-    DESeq2,
-    readr,
-    readxl,
-    pheatmap,
+    config,
     golem,
     shiny,
-    shinythemes,
+    bsicons,
+    bslib,
+    readxl,
+    dplyr,
+    shinyFiles,
     shinyWidgets,
-    shinyjs,
-    rlang,
+    writexl,
+    DT,
+    readr,
+    tidyr,
+    psych,
+    pheatmap,
+    ggplot2,
+    colourpicker,
+    DESeq2,
+    SummarizedExperiment,
     dashboardthemes,
     matrixStats,
-    elliptic,
-    utils,
-    config,
-    writexl,
-    dplyr,
-    jpeg,
-    png,
-    rsvg,
-    SummarizedExperiment,
-    psych,
-    Biostrings,
-    conflicted,
-    seqinr,
-    tikzDevice,
-    htmlwidgets,
-    webshot,
-    wordcloud2,
-    ggseqlogo,
-    UpSetR,
+    shinydashboard,
+    shinythemes,
     Mfuzz,
+    tidyverse,
     Biobase,
     VIM,
-    tidyr,
-    tidyverse,
-    ropls,
-    CCA,
     KmeansTrendAnalyzer,
+    CCA,
+    ropls,
+    ggprism,
+    VennDiagram,
+    tikzDevice,
+    UpSetR,
     ggridges,
-    clusterProfiler
+    seqinr,
+    Biostrings,
+    ggseqlogo
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
-Depends: 
-    R (>= 2.10)
-Suggests: 
-    spelling,
-    testthat (>= 3.0.0)
-Language: en-US
-Config/testthat/edition: 3
