@@ -81,7 +81,7 @@ enrichment_bubble_server <- function(input, output, session) {
     output$color_inputs <- renderUI({
       num_colors <- input$num_colors
       color_inputs <- lapply(1:num_colors, function(i) {
-        colourInput(ns(paste0("color", i)), paste0("Color ", i), value = ifelse(i == 1, "blue", "red"))
+        colourpicker::colourInput(ns(paste0("color", i)), paste0("Color ", i), value = ifelse(i == 1, "blue", "red"))
       })
       do.call(tagList, color_inputs)
     })
