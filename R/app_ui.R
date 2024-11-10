@@ -71,9 +71,9 @@ app_ui <- function(request) {
         "Help",
         icon = bs_icon("exclamation-circle"),
         help_ui("help")
-      ),
+      )
       # flexible tools
-      footer = flexible_tools_ui("flexible_tools")
+      # footer = flexible_tools_ui("flexible_tools")
     )
   )
 }
