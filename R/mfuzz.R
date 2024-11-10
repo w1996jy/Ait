@@ -85,13 +85,16 @@ mfuzz_ui <- function(id) {
 #' @param input A unique identifier for the module.
 #' @param output description
 #' @param session description
+#' @import shiny
 #' @import Mfuzz
 #' @import tidyverse
 #' @import Biobase
 #' @import VIM
+#' @import dplyr
 #' @return A Shiny server function that handles clustering and data processing.
 #' @name mfuzz_server
 #' @importFrom grDevices dev.off pdf
+#' @importFrom utils read.table write.table
 #' @export
 #'
 utils::globalVariables(c("pdf", "dev.off", "."))
