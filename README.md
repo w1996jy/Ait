@@ -28,7 +28,7 @@ Ait::run_app()
 
 ### APP usage method 2 (website)
 
-You can also directly visit the website https://pmyind-liangfei.shinyapps.io/AitApp/ to use the software.
+You can also directly visit the website https://u0quig-0-0.shinyapps.io/AitApp/ to use the software.
 
 ## Ait cookbook
 
