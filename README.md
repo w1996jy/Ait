@@ -23,7 +23,7 @@ devtools::install_github("w1996jy/Ait")
 ### APP usage method 1 (Rstudio)
 
 ```
-Ait::run_Ait()
+Ait::run_app()
 ```
 
 ### APP usage method 2 (website)
