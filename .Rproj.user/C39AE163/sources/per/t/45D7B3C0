@@ -1,0 +1,26 @@
+{
+    "id": "45D7B3C0",
+    "path": "G:/Ait/R/run_app.R",
+    "project_path": "R/run_app.R",
+    "type": "r_source",
+    "hash": "3119585617",
+    "contents": "",
+    "dirty": false,
+    "created": 1730856005681.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "8,3",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1731217828,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1731217828723,
+    "read_only": false,
+    "read_only_alternatives": []
+}

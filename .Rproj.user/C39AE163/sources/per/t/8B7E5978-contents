@@ -1,0 +1,53 @@
+Package: Ait
+Title: Ait Shiny App
+Version: 1.0.0
+Authors@R: 
+    person(given = "Junyue",
+           family = "Wang",
+           role = c("aut", "cre"),
+           email = "1264284076@qq.com")
+Description: Ait V.1.0.0 is a powerful bioinformatics analysis tool built on the Shiny framework, 
+    designed to help researchers and data analysts easily perform data processing, statistical analysis, and visualization. The application features an intuitive user interface that supports various data analysis functions, making it suitable for in-depth exploration of biological and experimental data.
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny,
+    bsicons,
+    bslib,
+    readxl,
+    dplyr,
+    shinyFiles,
+    shinyWidgets,
+    writexl,
+    DT,
+    readr,
+    tidyr,
+    psych,
+    pheatmap,
+    ggplot2,
+    colourpicker,
+    DESeq2,
+    SummarizedExperiment,
+    dashboardthemes,
+    matrixStats,
+    shinydashboard,
+    shinythemes,
+    Mfuzz,
+    tidyverse,
+    Biobase,
+    VIM,
+    KmeansTrendAnalyzer,
+    CCA,
+    ropls,
+    ggprism,
+    VennDiagram,
+    tikzDevice,
+    UpSetR,
+    ggridges,
+    seqinr,
+    Biostrings,
+    ggseqlogo
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
